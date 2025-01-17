@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queueing Model Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Queueing Model Results</h1>
+        <h2>Summary</h2>
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Traffic Intensity (ρ)</td>
+                    <td>{{ metrics['rho'] | round(2) }}</td>
+                </tr>
+                <tr>
+                    <td>Average Number of Customers (L)</td>
+                    <td>{{ (metrics['lambda_rate'] * metrics['w']) | round(2) }}</td>
+                </tr>
+                <tr>
+                    <td>Number of Customers in Queue (LQ)</td>
+                    <td>{{ (metrics['wq'] * metrics['lambda_rate']) | round(2) }}</td>
+                </tr>
+                <tr>
+                    <td>Average Time Spent in System (W)</td>
+                    <td>{{ metrics['w'] | round(2) }} hours</td>
+                </tr>
+                <tr>
+                    <td>Time Spent in Queue (WQ)</td>
+                    <td>{{ metrics['wq'] | round(2) }} hours</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="detailed-results">
+            <h3>Average Time in Queue (WQ)</h3>
+            <p>WQ = LQ / λ = {{ (metrics['wq'] * metrics['lambda_rate']) | round(2) }} / {{ metrics['lambda_rate'] | round(2) }} = {{ metrics['wq'] | round(2) }} hours</p>
+        </div>
+        <a href="/" class="back-button">Go Back</a>
+    </div>
+</body>
+</html>

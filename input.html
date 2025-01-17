@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queueing Model Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Queueing Model Calculator M/M/2</h1>
+        <p class="author">by Aurelia Septiani</p>
+        <form action="/result" method="POST">
+            <table class="form-table">
+                <tr>
+                    <td><label for="interarrival_time">Arrival rate (λ):</label></td>
+                    <td><input type="text" id="interarrival_time" name="interarrival_time" required></td>
+                </tr>
+                <tr>
+                    <td><label for="service_time">Service rate (μ):</label></td>
+                    <td><input type="text" id="service_time" name="service_time" required></td>
+                </tr>
+            </table>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+</body>
+</html>
